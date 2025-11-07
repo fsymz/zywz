@@ -19,13 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
     "立冬快乐",
     "慢慢来，不要焦虑",
     "累了就歇会儿",
-    "你那边下雪了吗",
+    "开心一点",
+    "照顾好自己",
+    "幸福会在路上",
+    "别忘了吃早饭",
+    "不开心可以吃点巧克力",
     "别想太多，你已经做得很好了",
     "每天都要开开心心",
     "按时吃饭",
     "注意好自己的身体",
     "要早睡早起",
     "立冬快乐",
+    "已经很棒了",
+    "我们都会变好",
     "今天也特别的好看",
     "天凉了，被子要盖好",
     "再坚持一下，好事会来的",
@@ -78,8 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 批次设置
     const totalPopups = 520;
     const batchSize = 10;
-    const batchInterval = 1500;
-    const innerInterval = 150;
+    const batchInterval = 2000;
+    const innerInterval = 200;
     
     let createdCount = 0;
     let usedPositions = [];
@@ -185,3 +191,4 @@ document.addEventListener('DOMContentLoaded', function() {
     generateBatch();
   }
 });
+
