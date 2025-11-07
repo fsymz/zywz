@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "微软雅黑", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f0f7ff;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* 初始弹窗样式 */
+.start-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  width: 85%;
+  max-width: 350px;
+}
+
+.modal-title {
+  font-size: 22px;
+  color: #2196F3;
+  margin-bottom: 15px;
+}
+
+.modal-text {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.open-btn {
+  padding: 10px 25px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.open-btn:hover {
+  background-color: #1976D2;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.popup {
+  position: absolute;
+  /* 宽度将在JS中动态设置 */
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  word-wrap: break-word;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+.popup .top-part {
+  padding: 8px 20px 5px; /* 上8px，左右20px，下5px */
+}
+
+.popup .to-label {
+  font-size: 12px;
+  color: inherit;
+  text-align: left;
+  opacity: 0.9;
+}
+
+.popup .divider {
+  height: 1px;
+  width: 100%;
+}
+
+.popup .bottom-part {
+  padding: 10px 20px 12px; /* 上10px，左右20px，下12px */
+}
+
+.popup .popup-text {
+  font-size: 14px; /* 从16px改为14px */
+  line-height: 1.2; /* 从1.3改为1.2 */
+  text-align: center;
+}
+
+@keyframes bounce {
+  0% { transform: translate(-50%, -50%) scale(0.7) rotate(var(--rotate)); }
+  40% { transform: translate(-50%, -50%) scale(1.3) rotate(var(--rotate)); }
+  70% { transform: translate(-50%, -50%) scale(0.9) rotate(var(--rotate)); }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(var(--rotate)); }
+}
+
+.popup {
+  animation: bounce 0.8s cubic-bezier(0.21, 0.98, 0.6, 0.99) forwards;
+}
+
+/* 所有主题色保持不变 */
+.theme-pink .top-part { background: #ffdde5; }
+.theme-pink .bottom-part { background: #ffe6ea; }
+.theme-pink .divider { background: #ff6b81; }
+.theme-pink { color: #ff4488; }
+
+.theme-green .top-part { background: #d9f7d9; }
+.theme-green .bottom-part { background: #e6ffe6; }
+.theme-green .divider { background: #66bb6a; }
+.theme-green { color: #4CAF50; }
+
+.theme-yellow .top-part { background: #fff3cc; }
+.theme-yellow .bottom-part { background: #fff9e6; }
+.theme-yellow .divider { background: #ffca28; }
+.theme-yellow { color: #ffc107; }
+
+.theme-purple .top-part { background: #e6d9ff; }
+.theme-purple .bottom-part { background: #f0e6ff; }
+.theme-purple .divider { background: #ab47bc; }
+.theme-purple { color: #9c27b0; }
+
+.theme-orange .top-part { background: #ffe6cc; }
+.theme-orange .bottom-part { background: #fff0e6; }
+.theme-orange .divider { background: #ffa726; }
+.theme-orange { color: #ff9800; }
+
+.theme-cyan .top-part { background: #d9f5f7; }
+.theme-cyan .bottom-part { background: #e6f7f9; }
+.theme-cyan .divider { background: #4dd0e1; }
+.theme-cyan { color: #26c6da; }
+
+.theme-navy .top-part { background: #ddeaff; }
+.theme-navy .bottom-part { background: #e6eeff; }
+.theme-navy .divider { background: #64b5f6; }
+.theme-navy { color: #1976d2; }
+
+.theme-rose .top-part { background: #ffe6f2; }
+.theme-rose .bottom-part { background: #fff0f7; }
+.theme-rose .divider { background: #ff80ab; }
+.theme-rose { color: #ec407a; }
+
+.theme-mint .top-part { background: #d9fff0; }
+.theme-mint .bottom-part { background: #e6fff5; }
+.theme-mint .divider { background: #66ffb3; }
+.theme-mint { color: #26a69a; }
+
+.theme-brown .top-part { background: #f2e6d9; }
+.theme-brown .bottom-part { background: #f7f0e6; }
+.theme-brown .divider { background: #d7ccc8; }
+.theme-brown { color: #8d6e63; }
+
+.theme-deep-purple .top-part { background: #e0d0e6; }
+.theme-deep-purple .bottom-part { background: #ead8f0; }
+.theme-deep-purple .divider { background: #9575cd; }
+.theme-deep-purple { color: #7b1fa2; }
+
+.theme-coral .top-part { background: #ffe0d9; }
+.theme-coral .bottom-part { background: #ffece6; }
+.theme-coral .divider { background: #ff8a65; }
+.theme-coral { color: #ef5350; }
+
+.theme-olive .top-part { background: #e6f0d9; }
+.theme-olive .bottom-part { background: #f0f7e6; }
+.theme-olive .divider { background: #aed581; }
+.theme-olive { color: #689f38; }
+
+.theme-ice-blue .top-part { background: #e6eeff; }
+.theme-ice-blue .bottom-part { background: #f0f5ff; }
+.theme-ice-blue .divider { background: #90caf9; }
+.theme-ice-blue { color: #42a5f5; }
